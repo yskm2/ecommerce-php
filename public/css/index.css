@@ -1,0 +1,294 @@
+@import url('reciclables.css');
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h5 {
+  font-weight: 500;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #4a8e5a;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* --- Componentes Reutilizables --- */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.section-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+.section-header p {
+  font-size: 1.1em;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #4a8e5a;
+  color: #fff;
+}
+
+/* --- Navegación y Encabezado (Compartido) --- */
+.top-nav {
+  background-color: var(--dark-color);
+  padding: 8px 0;
+  font-size: 0.9em;
+}
+.top-nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.my_button{
+  padding: 6px 6px;
+  font-size: 1em;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  margin-right: 10px;
+  transition: 0.3s ease;
+  background-color: red;
+  color: white;
+}
+.my_button:hover {
+  background-color: rgb(173, 104, 104);
+}
+.top-nav a {
+  color: var(--text-light);
+  margin-right: 15px;
+}
+.top-nav i {
+  margin: 0 5px;
+}
+.social-links a {
+  margin: 0 8px;
+}
+.main-header {
+  background-color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.main-nav {
+  display: flex;
+  gap: 25px;
+}
+.nav-link {
+  color: var(--text-color);
+  font-size: 1.1em;
+  font-weight: 500;
+}
+.header-icons {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  justify-content: center;
+}
+.header-icons .nav-icon {
+  font-size: 1.2em;
+  color: var(--text-color);
+}
+
+/* --- Banner Principal (Hero) --- */
+.hero-banner {
+  padding-top: 80px;
+  padding-bottom: 80px;
+  background-color: var(--light-color);
+}
+.hero-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.hero-text {
+  flex: 1;
+}
+.hero-image {
+  flex: 1;
+  
+}
+.hero-title {
+  font-size: 3em;
+  color: var(--primary-color);
+}
+.hero-title b {
+  color: var(--text-color);
+}
+.hero-subtitle {
+  font-size: 1.8em;
+  margin-bottom: 20px;
+  color: var(--text-color);
+}
+
+/* --- Sección de Categorías --- */
+.categories-section {
+  padding: 80px 0;
+}
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: center;
+ 
+  
+}
+.categories-grid a{
+  display: flex;
+  justify-content: center;
+}
+.categories-grid .btn-primary{
+  margin: 20px;
+  border-radius: 20px;
+}
+.category-img {
+  border-radius: 50%;
+  border: 3px solid #eee;
+  transition: transform 0.3s ease;
+  height: 268px;
+  width: 268px;
+  object-fit: cover;
+}
+.category-img:hover {
+  transform: scale(1.05);
+}
+.category-title {
+  font-size: 1.5em;
+  margin: 20px 0 15px;
+}
+
+/* --- Sección de Productos Destacados --- */
+.featured-products {
+  background-color: var(--light-color);
+  padding: 80px 0;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.product-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+.product-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+.card-body {
+  padding: 20px;
+}
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+.product-rating {
+  display: flex;
+  gap: 3px;
+}
+.star-active {
+  color: var(--warning-color);
+}
+.star-inactive {
+  color: #ccc;
+}
+.product-price {
+  font-size: 1.1em;
+  color: var(--muted-color);
+  font-weight: bold;
+}
+.product-title {
+  display: block;
+  font-size: 1.4em;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.product-description {
+  color: #666;
+  font-size: 0.9em;
+}
+.product-reviews {
+  color: var(--muted-color);
+}
+
+
+
+/* --- Diseño Responsivo (para móviles) --- */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .top-nav-content,
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .hero-content {
+    flex-direction: column-reverse; /* Pone la imagen arriba en móviles */
+  }
+
+  .categories-grid,
+  .products-grid,
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}

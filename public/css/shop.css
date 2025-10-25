@@ -1,0 +1,315 @@
+/* ========================================================================
+  ESTILOS PARA LA PÁGINA DE LA TIENDA (shop.php)
+   ======================================================================== */
+
+:root {
+    --primary-color: #59ab6e;
+    --dark-color: #212529;
+    --light-color: #f8f9fa;
+    --text-color: #333;
+    --text-light: #fefefe;
+    --warning-color: #ffc107;
+    --muted-color: #6c757d;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+/* --- Layout Principal --- */
+.shop-page-content {
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Un fondo ligeramente gris para la página */
+}
+/* --- Componentes Reutilizables --- */
+.section-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+.section-header h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+.section-header p {
+  font-size: 1.1em;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+.btn-primary {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+.btn-primary:hover {
+  background-color: #4a8e5a;
+  color: #fff;
+}
+
+/* --- Navegación y Encabezado (Compartido) --- */
+.top-nav {
+  background-color: var(--dark-color);
+  padding: 8px 0;
+  font-size: 0.9em;
+}
+.top-nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.top-nav a {
+  color: var(--text-light);
+  margin-right: 15px;
+}
+.top-nav i {
+  margin: 0 5px;
+}
+.social-links a {
+  margin: 0 8px;
+}
+.main-header {
+  background-color: #fff;
+  padding: 15px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+.main-nav {
+  display: flex;
+  gap: 25px;
+}
+.nav-link {
+  color: var(--text-color);
+  font-size: 1.1em;
+  font-weight: 500;
+}
+.header-icons {
+  display: flex;
+  gap: 20px;
+}
+.header-icons .nav-icon {
+  font-size: 1.2em;
+  color: var(--text-color);
+}
+.shop-layout {
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Columna fija de 250px para el sidebar, el resto para los productos */
+    gap: 40px; /* Espacio entre el sidebar y el área de productos */
+}
+
+
+/* --- 1. Barra Lateral (Sidebar) --- */
+.sidebar {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    height: fit-content; /* Asegura que el fondo no se extienda innecesariamente */
+    position: sticky; /* Hace que el sidebar se quede fijo al hacer scroll */
+    top: 20px;
+}
+
+.sidebar-title {
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.category-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.category-list a {
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Efecto hover para los enlaces de categoría */
+.category-list a:hover {
+    background-color: #f0f0f0;
+    color: var(--primary-color);
+}
+
+/* Estilo para el enlace de la categoría activa */
+.category-list a.active {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+
+/* --- 2. Área de Productos --- */
+.product-area {
+    width: 100%;
+}
+
+/* Barra superior con el dropdown de ordenación */
+.shop-top-bar {
+    display: flex;
+    justify-content: flex-end; /* Alinea el dropdown a la derecha */
+    margin-bottom: 30px;
+}
+
+.sort-dropdown {
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+
+/* --- 3. Cuadrícula de Productos --- */
+.shop-products-grid {
+    display: grid;
+    /* Crea columnas automáticas. Cada columna tiene un mínimo de 250px y un máximo de 1fr (fracción del espacio) */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px; /* Espacio entre las tarjetas de producto */
+}
+
+/* --- 4. Tarjeta de Producto Individual --- */
+.shop-product-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+    overflow: hidden; /* Asegura que la imagen no se salga de los bordes redondeados */
+    display: flex;
+    flex-direction: column; /* Organiza el contenido en columna */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.shop-product-card:hover {
+    transform: translateY(-5px); /* Efecto de "levantar" la tarjeta */
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+/* Contenedor de la imagen */
+.card-image-container {
+    position: relative;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+}
+
+/* Cuerpo de la tarjeta */
+.card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Hace que el cuerpo ocupe el espacio restante */
+}
+
+.product-title {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+.product-title:hover {
+    color: var(--primary-color);
+}
+
+
+/* --- 5. Botones de Acción --- */
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto; /* Empuja esta sección al final del card-body */
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+}
+
+.product-price {
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.card-action-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Botón "Ver Detalles" (icono de ojo) */
+.btn-view-details-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    color: #555;
+    font-size: 1.1em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-view-details-icon:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background-color: #f0fff4; /* Un verde muy claro */
+}
+
+
+/* Botón de "Agregar al Carrito" (icono) */
+.btn-add-cart-alt {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-add-cart-alt:hover {
+    background-color: #4a8e5a; /* Un verde un poco más oscuro */
+}
+
+
+/* --- Diseño Responsivo --- */
+@media (max-width: 992px) {
+    .shop-layout {
+        grid-template-columns: 1fr; /* El sidebar se pone encima del contenido */
+    }
+    .sidebar {
+        position: static; /* Quitamos el 'sticky' en móviles */
+        margin-bottom: 30px;
+    }
+}

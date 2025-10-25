@@ -1,0 +1,144 @@
+/* ========================================================================
+   ESTILOS UNIFICADOS PARA LOGIN Y REGISTRO
+   ======================================================================== */
+
+/* ==== Variables de colores (Tema Verde de tu tienda) ==== */
+:root {
+    --bg-color: #f0f2f5;
+    --card-color: #ffffff;
+    --primary-color: #59ab6e; /* Verde principal */
+    --primary-hover: #4a8e5a; /* Verde más oscuro */
+    --text-color: #333333;
+    --placeholder-color: #888888;
+}
+
+/* ==== Reset básico ==== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ==== Estructura y Fondo ==== */
+body {
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ==== Contenedor principal (la tarjeta) ==== */
+.check-in-area {
+    background: var(--card-color);
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* ==== Título ==== */
+.titulo-logo h2 {
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
+/* ==== Formulario ==== */
+.check-in-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; /* Espacio entre los campos */
+}
+
+/* Grupo de Input con Icono */
+.input-group {
+    position: relative;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--placeholder-color);
+    transition: color 0.3s ease;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.9rem 1rem 0.9rem 2.8rem; /* Espacio a la izquierda para el ícono */
+    border: 1px solid #ddd;
+    border-radius: 0.8rem;
+    font-size: 1rem;
+    color: var(--text-color);
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al hacer focus en el input */
+.input-group input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(89, 171, 110, 0.3);
+}
+
+.input-group input:focus + i,
+.input-group input:focus ~ i {
+    color: var(--primary-color);
+}
+
+/* ==== Botones ==== */
+/* Botón principal (verde, relleno) */
+.check-in-form button[type="submit"] {
+    background: var(--primary-color);
+    color: #fff;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 0.8rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.check-in-form button[type="submit"]:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.check-in-form button i {
+    margin-right: 8px;
+}
+
+/* Botón secundario (enlace de texto) */
+.secondary-btn {
+    display: block;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+.secondary-btn:hover {
+    text-decoration: underline;
+}
+
+
+/* ==== Animaciones ==== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
