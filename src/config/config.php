@@ -3,7 +3,7 @@ namespace App\Config;
 
 class Config {
     // URL base del proyecto
-    const BASE_URL = 'http://localhost/proyectophp/public/';
+    const BASE_URL = 'http://localhost/ecommerce-php/public/';
     
     // Rutas de subida de archivos
     const UPLOAD_DIR = '../public/assets/img/componentes/';
