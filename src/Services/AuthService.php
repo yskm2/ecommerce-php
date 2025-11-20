@@ -120,40 +120,49 @@ class AuthService {
      * Verificar autenticación automática con cookies
      */
     public function checkRememberMe() {
-        if (!isset($_COOKIE['remember_me_id'], $_COOKIE['remember_me_token'])) {
-            return false;
-        }
-        
-        $userId = $_COOKIE['remember_me_id'];
-        $token = $_COOKIE['remember_me_token'];
-        
-        $user = $this->userModel->findById($userId);
-        
-        if (!$user) {
-            return false;
-        }
-        
-        // Verificar token y que no haya expirado
-        if (hash_equals($user['remember_me_token'], $token) && 
-            strtotime($user['token_expiry']) > time()) {
-            
-            // Iniciar sesión automáticamente
-            session_regenerate_id(true);
-            Session::set('id', $user['id']);
-            Session::set('name', !empty($user['nombre']) ? $user['nombre'] : $user['username']);
-            
-            if ($user['rol'] === 'admin') {
-                Session::set('is_admin', true);
-            } else {
-                Session::set('loggedin', true);
-                $this->cartService->syncFromDatabase($user['id']);
-            }
-            
-            return true;
-        }
-        
+    if (!isset($_COOKIE['remember_me_id'], $_COOKIE['remember_me_token'])) {
         return false;
     }
+    
+    $userId = $_COOKIE['remember_me_id'];
+    $tokenFromCookie = $_COOKIE['remember_me_token']; // Este es el token "llave" sin encriptar
+    
+    $user = $this->userModel->findByCredentials($userId);
+    
+    if (!$user) {
+        return false;
+    }
+    
+    // --- CORRECCIÓN AQUÍ ---
+    // 1. Tomamos el token de la cookie.
+    // 2. Lo hasheamos con el mismo algoritmo que usaste en la BD (ej. sha256).
+    // 3. Comparamos ese resultado con lo que hay en la BD.
+    
+    $tokenHashCalculado = hash('sha256', $tokenFromCookie); 
+    
+    if (hash_equals($user['remember_me_token'], $tokenHashCalculado) && 
+        strtotime($user['token_expiry']) > time()) {
+        
+        // [Recomendado] Aquí deberías rotar el token (generar uno nuevo) para mayor seguridad
+        
+        session_regenerate_id(true);
+        Session::set('id', $user['id']);
+        Session::set('name', !empty($user['nombre']) ? $user['nombre'] : $user['username']);
+        
+        // Unificar estado de logueo
+        Session::set('loggedin', true);
+
+        if ($user['rol'] === 'admin') {
+            Session::set('is_admin', true);
+        } else {
+            $this->cartService->syncFromDatabase($user['id']);
+        }
+        
+        return true;
+    }
+    
+    return false;
+}
     
     /**
      * Establecer cookie de "recordarme"
