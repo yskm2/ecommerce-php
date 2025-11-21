@@ -1,12 +1,5 @@
-/* style.css - entry point imports modular CSS */
+/* style.css - Punto de entrada CSS optimizado */
 @import url('variables.css');
 @import url('base.css');
-@import url('layout.css');
-@import url('pages.css');
 @import url('components.css');
-@import url('forms.css');
-@import url('auth.css');
-@import url('product.css');
-@import url('cart.css');
-@import url('admin.css');
 @import url('utilities.css');

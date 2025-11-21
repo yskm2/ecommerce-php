@@ -4,7 +4,7 @@
             <div class="footer-column">
                 <h2 class="footer-logo">eBrainrot</h2>
                 <ul>
-                    <li><i class="fas fa-map-marker-alt fa-fw"></i> Hermosillo, Son</li>
+                    <li><i class="fas fa-map-marker-alt fa-fw"></i><a href="https://maps.app.goo.gl/YXFMr2c5p3PGaidx7">Hermosillo, Sonora</a></li>
                     <li><i class="fa fa-phone fa-fw"></i> <a href="tel:010-020-0340">010-020-0340</a></li>
                     <li><i class="fa fa-envelope fa-fw"></i> <a href="mailto:info@company.com">info@UES.com</a></li>
                 </ul>

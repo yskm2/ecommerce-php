@@ -26,13 +26,13 @@
                     <input type="password" name="password" placeholder="Contraseña" id="password" required>
                 </div>
 
-                <button type="submit">
-                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
-                </button>
-
                 <label>
                     <input type="checkbox" name="rememberme" value="1"> Recordarme
                 </label>
+
+                <button type="submit">
+                    <i class="fas fa-sign-in-alt"></i> Iniciar Sesión
+                </button>
 
                 <a href="<?= $BASE_URL ?>index.php?route=register" class="register-btn">
                     <i class="fas fa-user-plus"></i> Registrarse

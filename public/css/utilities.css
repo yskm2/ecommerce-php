@@ -41,3 +41,144 @@
 .hidden {
     display: none !important;
 }
+
+/* Common flex patterns */
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Common grid patterns */
+.grid-auto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+/* Common spacing */
+.gap-xs {
+    gap: .35rem;
+}
+
+.gap-sm {
+    gap: .5rem;
+}
+
+.gap-md {
+    gap: 1rem;
+}
+
+.gap-lg {
+    gap: 1.5rem;
+}
+
+/* Common padding */
+.p-sm {
+    padding: .5rem;
+}
+
+.p-md {
+    padding: 1rem;
+}
+
+.p-lg {
+    padding: 1.5rem;
+}
+
+/* Common borders */
+.border-surface {
+    border: 1px solid var(--color-border);
+}
+
+.rounded-sm {
+    border-radius: var(--radius-sm);
+}
+
+.rounded-md {
+    border-radius: var(--radius-md);
+}
+
+/* Common transitions */
+.hover-lift {
+    transition: var(--transition);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-purple);
+}
+
+/* Text utilities */
+.text-muted {
+    color: var(--color-text-muted);
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* Margin utilities */
+.mt-sm {
+    margin-top: .5rem;
+}
+
+.mt-md {
+    margin-top: 1rem;
+}
+
+.mb-md {
+    margin-bottom: 1rem;
+}
+
+.mt-lg {
+    margin-top: 1.5rem;
+}
+
+.mb-lg {
+    margin-bottom: 1.5rem;
+}
+
+.inline-form {
+    display: inline;
+}
+
+/* Smooth scroll */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-surface);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary-hover);
+}
