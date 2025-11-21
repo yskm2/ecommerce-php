@@ -56,9 +56,11 @@ class View {
     public static function renderSimple($view, $data = []) {
         extract($data);
         $BASE_URL = Config::BASE_URL;
-        
+        ob_start();
         include __DIR__ . '/../Views/layouts/head.php';
         include __DIR__ . "/../Views/{$view}.php";
+        include __DIR__ . '/../Views/layouts/footer.php';
+        echo ob_get_clean();
     }
     
     /**

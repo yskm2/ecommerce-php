@@ -9,13 +9,13 @@ use App\Helpers\View;
 class PageController {
     
     public function about() {
-        View::render('pages/about', [
+        View::render('home/about', [
             'pageTitle' => 'Acerca de Nosotros'
         ]);
     }
     
     public function contact() {
-        View::render('pages/contact', [
+        View::render('home/contact', [
             'pageTitle' => 'Contacto'
         ]);
     }

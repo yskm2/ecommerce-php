@@ -6,33 +6,34 @@ $current_page = $_GET['route'] ?? 'dashboard';
     <nav>
         <ul>
             <li>
-                <a href="index.php?route=dashboard"
-                    class="<?php echo ($current_page == 'dashboard') ? 'active' : ''; ?>">
+                <a href="<?= $BASE_URL ?>index.php?route=dashboard"
+                    class="<?= ($current_page == 'dashboard') ? 'active' : '' ?>">
                     Dashboard
                 </a>
             </li>
             <li>
-                <a href="index.php?route=admin_products"
-                    class="<?php echo ($current_page == 'admin_products') ? 'active' : ''; ?>">
+                <a href="<?= $BASE_URL ?>index.php?route=admin_products"
+                    class="<?= ($current_page == 'admin_products') ? 'active' : '' ?>">
                     Productos
                 </a>
             </li>
             <li>
-                <a href="index.php?route=admin_orders"
-                    class="<?php echo ($current_page == 'admin_orders') ? 'active' : ''; ?>">
+                <a href="<?= $BASE_URL ?>index.php?route=admin_orders"
+                    class="<?= ($current_page == 'admin_orders') ? 'active' : '' ?>">
                     Pedidos
                 </a>
+            </li>
             <li>
-                <a href="index.php?route=admin_users"
-                    class="<?php echo ($current_page == 'admin_users') ? 'active' : ''; ?>">
+                <a href="<?= $BASE_URL ?>index.php?route=admin_users"
+                    class="<?= ($current_page == 'admin_users') ? 'active' : '' ?>">
                     Usuarios
                 </a>
+            </li>
             <li>
-                <form action="index.php?route=logout" method="POST" style="display:inline;">
+                <form action="<?= $BASE_URL ?>index.php?route=logout" method="POST" class="inline-form">
                     <input type="hidden" name="action" value="logout">
                     <button type="submit" class="logout-button">Cerrar Sesión</button>
                 </form>
-
             </li>
         </ul>
     </nav>

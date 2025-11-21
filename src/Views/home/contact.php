@@ -1,41 +1,54 @@
-
-<!DOCTYPE html>
-<html lang="es">
-
-
-
-<body>
-    
-
+<main class="page-content">
     <section class="page-header">
         <div class="container">
-            <h1>Contactanos</h1>
-            <p>Proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet.</p>
+            <h1 class="page-title">Contáctanos</h1>
+            <p>Estamos aquí para ayudarte. Déjanos un mensaje y te responderemos lo antes posible.</p>
         </div>
     </section>
 
-    <div id="mapid" style="width: 100%; height: 300px;"></div>
+    <section class="contact-info">
+        <div class="container">
+            <div class="contact-info-grid">
+                <div class="contact-info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Ubicación</h3>
+                    <p>Hermosillo, Sonora<br>México</p>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Teléfono</h3>
+                    <p>010-020-0340</p>
+                </div>
+                <div class="contact-info-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>info@ebrainrot.com</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="contact-section">
         <div class="container">
-            <form class="contact-form" method="post" role="form">
+            <h2>Envíanos un mensaje</h2>
+            <form class="contact-form" method="post" action="<?= $BASE_URL ?>index.php?route=contact-submit">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="inputname">Nombre</label>
-                        <input type="text" id="name" name="name" placeholder="Name">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
                     </div>
                     <div class="form-group">
-                        <label for="inputemail">Email</label>
-                        <input type="email" id="email" name="email" placeholder="Email">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="tu@email.com" required>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputsubject">Sobre que</label>
-                    <input type="text" id="subject" name="subject" placeholder="Subject">
+                    <label for="subject">Asunto</label>
+                    <input type="text" id="subject" name="subject" placeholder="¿En qué podemos ayudarte?" required>
                 </div>
                 <div class="form-group">
-                    <label for="inputmessage">Mensaje</label>
-                    <textarea id="message" name="message" placeholder="Message" rows="8"></textarea>
+                    <label for="message">Mensaje</label>
+                    <textarea id="message" name="message" placeholder="Escribe tu mensaje aquí..." rows="8" required></textarea>
                 </div>
                 <div class="form-submit-row">
                     <button type="submit" class="btn-primary">Enviar</button>
@@ -43,55 +56,4 @@
             </form>
         </div>
     </section>
-
-    
-
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-<script>
-    // Primero, obtén el elemento del mapa
-    var mymap = L.map('mapid');
-    
-    // Define las capas del mapa (el diseño visual)
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=TU_ACCESS_TOKEN_AQUI', {
-        maxZoom: 18,
-        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-            '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-            'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-        id: 'mapbox/streets-v11',
-        tileSize: 512,
-        zoomOffset: -1
-    }).addTo(mymap);
-
-    // Función que se ejecuta si se obtiene la ubicación con éxito
-    function onLocationFound(e) {
-        var radius = e.accuracy / 2;
-
-        // Centra el mapa en la ubicación del usuario
-        mymap.setView(e.latlng, 13);
-
-        // Coloca un marcador en la ubicación y un círculo para mostrar la precisión
-        L.marker(e.latlng).addTo(mymap)
-            .bindPopup("¡Estás aquí! (con un radio de " + radius + " metros de precisión)").openPopup();
-
-        L.circle(e.latlng, radius).addTo(mymap);
-    }
-
-    // Función que se ejecuta si hay un error al obtener la ubicación
-    function onLocationError(e) {
-        alert("No se pudo obtener tu ubicación. Mostrando una ubicación predeterminada.");
-        // Si falla, muestra la ubicación original que tenías
-        mymap.setView([-23.013104, -43.394365], 13);
-        L.marker([-23.013104, -43.394365]).addTo(mymap)
-            .bindPopup("Ubicación de ejemplo.").openPopup();
-    }
-
-    // Pide al navegador la ubicación del usuario
-    mymap.on('locationfound', onLocationFound);
-    mymap.on('locationerror', onLocationError);
-
-    mymap.locate({setView: true, maxZoom: 16});
-
-</script>
-
-</body>
-</html>
+</main>

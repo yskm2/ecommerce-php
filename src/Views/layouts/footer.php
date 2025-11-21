@@ -12,25 +12,27 @@
             <div class="footer-column">
                 <h2>Productos</h2>
                 <ul>
-                    <li><a href="/index.php?route=shop&categoria=componentes">Componentes</a></li>
-                    <li><a href="/index.php?route=shop&categoria=gaming">Gaming</a></li>
-                    <li><a href="/index.php?route=shop&categoria=monitores">Monitores</a></li>
-                    <li><a href="/index.php?route=shop&categoria=almacenamiento">Almacenamiento</a></li>
+                    <li><a href="<?= $BASE_URL ?>index.php?route=shop&categoria=componentes">Componentes</a></li>
+                    <li><a href="<?= $BASE_URL ?>index.php?route=shop&categoria=gaming">Gaming</a></li>
+                    <li><a href="<?= $BASE_URL ?>index.php?route=shop&categoria=monitores">Monitores</a></li>
+                    <li><a href="<?= $BASE_URL ?>index.php?route=shop&categoria=almacenamiento">Almacenamiento</a></li>
                 </ul>
             </div>
             <div class="footer-column">
                 <h2>Informacion</h2>
                 <ul>
-                    <li><a href="/index.php?route=home">Inicio</a></li>
-                    <li><a href="/index.php?route=about">Acerca de</a></li>
-                    <li><a href="/index.php?route=contact">Contacto</a></li>
+                    <li><a href="<?= $BASE_URL ?>index.php?route=home">Inicio</a></li>
+                    <li><a href="<?= $BASE_URL ?>index.php?route=about">Acerca de</a></li>
+                    <li><a href="<?= $BASE_URL ?>index.php?route=contact">Contacto</a></li>
                 </ul>
             </div>
         </div>
-        </div>
+    </div>
     <div class="copyright-bar">
         <div class="container">
             <p>Copyright &copy; 2025 UES<a rel="sponsored" href="" target="_blank">EQUIPO</a></p>
         </div>
     </div>
 </footer>
+</body>
+</html>

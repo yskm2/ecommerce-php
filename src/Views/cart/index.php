@@ -64,10 +64,9 @@ $total = 0;
                         <span>Total</span>
                         <span>$<?= number_format($total + 150, 2) ?></span>
                     </div>
-                    <button class="btn-primary btn-checkout"
-                        onclick="location.href='<?= $BASE_URL ?>index.php?route=checkout'">
+                    <a href="<?= $BASE_URL ?>index.php?route=checkout" class="btn-primary btn-checkout">
                         Proceder al Pago
-                    </button>
+                    </a>
                 </div>
             </div>
         <?php endif; ?>

@@ -2,8 +2,8 @@
 <div class="main-content">
     <h1>Gestionar Productos</h1>
     
-    <a href="<?=$BASE_URL ?>index.php?route=admin_create_product" 
-       class="btn-submit" style="margin-bottom: 20px; display: inline-block;">
+     <a href="<?=$BASE_URL ?>index.php?route=admin_create_product" 
+         class="btn-primary btn-inline-add">
         + Añadir Nuevo Producto
     </a>
 
@@ -31,7 +31,9 @@
                         <td><?= htmlspecialchars(substr($product['descripcion'], 0, 50)) ?>...</td>
                         <td class="actions">
                             <a href="#" class="btn-edit">Editar</a>
-                            <a href="#" class="btn-delete" onclick="return confirm('¿Eliminar este producto?')">Borrar</a>
+                            <form action="#" method="POST" class="inline-form">
+                                <button type="submit" class="btn-delete">Borrar</button>
+                            </form>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -1,33 +1,35 @@
 <main class="page-content">
-    <form method="POST" action="<?= $BASE_URL ?>index.php?route=checkout-process">
-
-        <div class="container checkout-layout">
-            <!-- Información de facturación y envío -->
-            <div class="informacion_facturacion">
-                <h2>Información de facturación</h2>
+    <div class="container">
+        <h1 class="page-title">Finalizar Compra</h1>
+        
+        <form method="POST" action="<?= $BASE_URL ?>index.php?route=checkout-process">
+            <div class="checkout-layout">
+                <!-- Información de facturación y envío -->
+                <div class="billing-info">
+                    <h2>Información de facturación</h2>
 
                 <div class="form-grid">
                     <div>
-                        <label>Nombre(s)</label>
-                        <input type="text" name="nombre" placeholder="Tu nombre"
+                        <label for="nombre">Nombre(s)</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre"
                             value="<?= htmlspecialchars($usuario['nombre'] ?? '') ?>" required>
                     </div>
                     <div>
-                        <label>Apellido(s)</label>
-                        <input type="text" name="apellido" placeholder="Tus apellidos"
+                        <label for="apellido">Apellido(s)</label>
+                        <input type="text" id="apellido" name="apellido" placeholder="Tus apellidos"
                             value="<?= htmlspecialchars($usuario['apellido'] ?? '') ?>" required>
                     </div>
                 </div>
 
                 <div class="form-grid">
                     <div>
-                        <label>Correo Electrónico</label>
-                        <input type="email" name="email" value="<?= htmlspecialchars($usuario['email'] ?? '') ?>"
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" name="email" value="<?= htmlspecialchars($usuario['email'] ?? '') ?>"
                             required>
                     </div>
                     <div>
-                        <label>Teléfono</label>
-                        <input type="text" name="telefono" value="<?= htmlspecialchars($usuario['telefono'] ?? '') ?>"
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" value="<?= htmlspecialchars($usuario['telefono'] ?? '') ?>"
                             required>
                     </div>
                 </div>
@@ -35,52 +37,53 @@
                 <h2>Dirección de Envío</h2>
 
                 <div class="form-row">
-                    <label>Calle</label>
-                    <input type="text" name="calle" placeholder="Ej. Av. Juárez"
+                    <label for="calle">Calle</label>
+                    <input type="text" id="calle" name="calle" placeholder="Ej. Av. Juárez"
                         value="<?= htmlspecialchars($direccion['calle'] ?? '') ?>" required>
                 </div>
 
                 <div class="form-grid">
                     <div>
-                        <label>Número</label>
-                        <input type="text" name="numero" placeholder="Ej. 123"
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero" name="numero" placeholder="Ej. 123"
                             value="<?= htmlspecialchars($direccion['numero'] ?? '') ?>" required>
                     </div>
                     <div>
-                        <label>Colonia</label>
-                        <input type="text" name="colonia" placeholder="Ej. Centro"
+                        <label for="colonia">Colonia</label>
+                        <input type="text" id="colonia" name="colonia" placeholder="Ej. Centro"
                             value="<?= htmlspecialchars($direccion['colonia'] ?? '') ?>" required>
                     </div>
                 </div>
 
                 <div class="form-grid">
                     <div>
-                        <label>Ciudad</label>
-                        <input type="text" name="ciudad" placeholder="Ej. Guadalajara"
+                        <label for="ciudad">Ciudad</label>
+                        <input type="text" id="ciudad" name="ciudad" placeholder="Ej. Guadalajara"
                             value="<?= htmlspecialchars($direccion['ciudad'] ?? '') ?>" required>
                     </div>
                     <div>
-                        <label>Estado</label>
-                        <input type="text" name="estado" placeholder="Ej. Jalisco"
+                        <label for="estado">Estado</label>
+                        <input type="text" id="estado" name="estado" placeholder="Ej. Jalisco"
                             value="<?= htmlspecialchars($direccion['estado'] ?? '') ?>" required>
                     </div>
                 </div>
 
                 <div class="form-grid">
                     <div>
-                        <label>Código Postal</label>
-                        <input type="text" name="codigo_postal" placeholder="Ej. 44100"
+                        <label for="codigo_postal">Código Postal</label>
+                        <input type="text" id="codigo_postal" name="codigo_postal" placeholder="Ej. 44100"
                             value="<?= htmlspecialchars($direccion['codigo_postal'] ?? '') ?>" required>
                     </div>
                     <div>
-                        <label>Referencias (opcional)</label>
-                        <input type="text" name="referencias" placeholder="Ej. Frente al parque"
+                        <label for="referencias">Referencias (opcional)</label>
+                        <input type="text" id="referencias" name="referencias" placeholder="Ej. Frente al parque"
                             value="<?= htmlspecialchars($direccion['referencias'] ?? '') ?>">
                     </div>
                 </div>
 
                 <h2>Método de pago</h2>
-                <select name="metodo_pago" required>
+                <label for="metodo_pago">Selecciona un método de pago</label>
+                <select id="metodo_pago" name="metodo_pago" required>
                     <option value="" disabled selected>Selecciona un método</option>
                     <option value="Tarjeta">Tarjeta de crédito / débito</option>
                     <option value="PayPal">PayPal</option>
@@ -89,8 +92,8 @@
                 </select>
 
                 <div class="form-row">
-                    <label>Notas adicionales (opcional)</label>
-                    <textarea name="notas" placeholder="Instrucciones o comentarios"></textarea>
+                    <label for="notas">Notas adicionales (opcional)</label>
+                    <textarea id="notas" name="notas" placeholder="Instrucciones o comentarios"></textarea>
                 </div>
             </div>
 

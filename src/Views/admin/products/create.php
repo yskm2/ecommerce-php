@@ -1,34 +1,3 @@
-<style>
-.form-group {
-    margin-bottom: 15px;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
-}
-.btn-submit {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1em;
-}
-.btn-submit:hover {
-    background-color: #218838;
-}
-</style>
 <div class="main-content">
     <h1>Crear Nuevo Producto</h1>
 
@@ -72,6 +41,6 @@
             <small>Formatos permitidos: JPG, JPEG, PNG. Tamaño máximo: 2MB</small>
         </div>
 
-        <button type="submit" class="btn-submit">Guardar Producto</button>
+        <button type="submit" class="btn-primary">Guardar Producto</button>
     </form>
 </div>

@@ -1,0 +1,161 @@
+.profile-form,
+.check-in-form,
+form {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.profile-form label {
+    font-size: .7rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--color-text-muted);
+}
+
+.profile-form input[type="text"],
+.profile-form input[type="email"],
+.profile-form input[type="password"],
+.profile-form input[type="tel"],
+.check-in-form input[type="text"],
+.check-in-form input[type="email"],
+.check-in-form input[type="password"],
+.check-in-form input[type="tel"],
+.check-in-form input,
+form select,
+form textarea,
+form input[type="number"] {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    padding: .6rem .75rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: .85rem;
+}
+
+/* Asegurar que todos los inputs de check-in-form tengan el mismo estilo */
+.check-in-form input:not([type="hidden"]):not([type="checkbox"]) {
+    background: var(--color-surface-alt) !important;
+    border: 1px solid var(--color-border) !important;
+    padding: .6rem .75rem !important;
+    border-radius: var(--radius-sm) !important;
+    color: var(--color-text) !important;
+    font-size: .85rem !important;
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+.btn-inline-add {
+    margin-bottom: 1rem;
+}
+
+.actions a {
+    font-size: .7rem;
+    margin-right: .5rem;
+}
+
+.actions a.delete {
+    color: var(--color-danger);
+}
+
+.quantity-form {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+
+.quantity-btn {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    width: 28px;
+    height: 28px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.quantity-btn:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+/* Checkout form structure */
+.checkout-layout {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 1fr 380px;
+}
+
+@media (max-width: 960px) {
+    .checkout-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+.billing-info,
+.resumen-compra {
+    background: var(--color-surface);
+    padding: 1.5rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+}
+
+.form-grid {
+    display: grid;
+    gap: .75rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: .75rem;
+}
+
+.form-row {
+    margin-bottom: .75rem;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: .35rem;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--color-text-muted);
+}
+
+.summary-calculation {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-bottom: 1rem;
+}
+
+/* Admin forms */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: .35rem;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+}
+
+.form-group small {
+    font-size: .7rem;
+    color: var(--color-text-muted);
+    margin-top: .25rem;
+    display: block;
+}

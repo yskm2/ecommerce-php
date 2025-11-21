@@ -1,0 +1,116 @@
+.main-header {
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.main-nav {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+.main-nav .nav-link {
+    padding: .5rem .75rem;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+}
+
+.main-nav .nav-link:hover {
+    background: var(--color-surface-alt);
+    color: var(--color-text);
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+}
+
+.nav-icon {
+    position: relative;
+    color: var(--color-text-muted);
+    padding: .5rem;
+    border-radius: var(--radius-sm);
+}
+
+.nav-icon:hover {
+    background: var(--color-surface-alt);
+    color: var(--color-text);
+}
+
+.cart-count {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: var(--color-danger);
+    color: #fff;
+    font-size: .65rem;
+    padding: 2px 5px;
+    border-radius: var(--radius-lg);
+}
+
+.main-footer {
+    background: var(--color-surface);
+    margin-top: 3rem;
+    padding: 3rem 0 0;
+    border-top: 1px solid var(--color-border);
+}
+
+.footer-content {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.footer-column h2 {
+    margin-top: 0;
+    font-size: 1rem;
+    letter-spacing: .5px;
+}
+
+.footer-column ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer-column li {
+    margin: .4rem 0;
+    font-size: .85rem;
+    color: var(--color-text-muted);
+}
+
+.footer-column a {
+    color: var(--color-text-muted);
+}
+
+.footer-column a:hover {
+    color: var(--color-text);
+}
+
+.copyright-bar {
+    margin-top: 2rem;
+    padding: 1rem 0;
+    background: var(--color-surface-alt);
+    font-size: .75rem;
+    text-align: center;
+}
+
+.page-content {
+    padding: 2rem 0;
+}

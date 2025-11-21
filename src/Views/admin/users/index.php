@@ -1,8 +1,7 @@
 <div class="main-content">
     <h1>Gestionar Usuarios</h1>
 
-    <a href="<?= $BASE_URL ?>index.php?route=admin_create_user" class="btn-submit"
-        style="margin-bottom: 20px; display: inline-block;">
+    <a href="<?= $BASE_URL ?>index.php?route=admin_create_user" class="btn-primary btn-inline-add">
         + Añadir Nuevo Usuario
     </a>
 
@@ -23,22 +22,22 @@
             <?php if (!empty($users)): ?>
                 <?php foreach ($users as $user): ?>
                     <tr>
-                        <td><?php echo $user['id']; ?></td>
-                        <td><?php echo htmlspecialchars($user['username']); ?></td>
-                        <td><?php echo htmlspecialchars($user['nombre'] . ' ' . $user['apellido']); ?></td>
-                        <td><?php echo htmlspecialchars($user['email']); ?></td>
-                        <td><?php echo htmlspecialchars($user['telefono']); ?></td>
+                        <td><?= $user['id'] ?></td>
+                        <td><?= htmlspecialchars($user['username']) ?></td>
+                        <td><?= htmlspecialchars($user['nombre'] . ' ' . $user['apellido']) ?></td>
+                        <td><?= htmlspecialchars($user['email']) ?></td>
+                        <td><?= htmlspecialchars($user['telefono']) ?></td>
                         <td>
                             <?php if ($user['rol'] === 'admin'): ?>
-                                <strong><?php echo 'Admin'; ?></strong>
+                                <strong>Admin</strong>
                             <?php else: ?>
-                                <?php echo 'Usuario'; ?>
+                                Usuario
                             <?php endif; ?>
                         </td>
-                        <td><?php echo date('d/m/Y', strtotime($user['creado_en'])); ?></td>
+                        <td><?= date('d/m/Y', strtotime($user['creado_en'])) ?></td>
                         <td class="actions">
-                            <a href="#">Editar</a>
-                            <a href="#" class="delete">Borrar</a>
+                            <a href="#" class="btn-edit">Editar</a>
+                            <a href="#" class="btn-delete">Borrar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>
