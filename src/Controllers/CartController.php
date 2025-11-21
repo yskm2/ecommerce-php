@@ -55,9 +55,9 @@ class CartController {
      */
     public function update() {
         $productId = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
-        $action = $_POST['update_action'] ?? '';
+        $action = $_POST['update_action'] ?? null;
         
-        if (!$productId || !in_array($action, ['sumar', 'restar'])) {
+        if (!$productId || !$action || !in_array($action, ['sumar', 'restar'], true)) {
             View::redirect('cart', 'error', 'Datos inválidos');
             return;
         }

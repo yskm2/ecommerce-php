@@ -22,9 +22,7 @@
                     <td><?= isset($order['created_at']) ? date('d/m/Y', strtotime($order['created_at'])) : '—' ?></td>
                     <td class="actions">
                         <a href="#" class="btn-edit">Ver</a>
-                        <form action="#" method="POST" class="inline-form">
-                            <button type="submit" class="btn-delete">Cancelar</button>
-                        </form>
+                        <a href="#" class="btn-delete">Cancelar</a>
                     </td>
                 </tr>
             <?php endforeach; ?>

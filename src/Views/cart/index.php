@@ -30,10 +30,13 @@ $total = 0;
                             </div>
 
                             <div class="cart-item-quantity">
-                                <form action="<?= $BASE_URL ?>index.php?route=cart-update" method="post" class="quantity-form">
+                                <form action="<?= $BASE_URL ?>index.php?route=cart-update" method="post" class="quantity-form-inline">
                                     <input type="hidden" name="id" value="<?= $id ?>">
-                                    <button type="submit" name="update_action" value="restar" class="quantity-btn">-</button>
-                                    <span class="quantity-value"><?= $producto['cantidad'] ?></span>
+                                    <button type="submit" name="update_action" value="restar" class="quantity-btn">−</button>
+                                </form>
+                                <span class="quantity-value"><?= $producto['cantidad'] ?></span>
+                                <form action="<?= $BASE_URL ?>index.php?route=cart-update" method="post" class="quantity-form-inline">
+                                    <input type="hidden" name="id" value="<?= $id ?>">
                                     <button type="submit" name="update_action" value="sumar" class="quantity-btn">+</button>
                                 </form>
                             </div>

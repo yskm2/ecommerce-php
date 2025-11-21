@@ -31,9 +31,7 @@
                         <td><?= htmlspecialchars(substr($product['descripcion'], 0, 50)) ?>...</td>
                         <td class="actions">
                             <a href="#" class="btn-edit">Editar</a>
-                            <form action="#" method="POST" class="inline-form">
-                                <button type="submit" class="btn-delete">Borrar</button>
-                            </form>
+                            <a href="#" class="btn-delete">Borrar</a>
                         </td>
                     </tr>
                 <?php endforeach; ?>

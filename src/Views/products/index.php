@@ -37,7 +37,7 @@
                         <?php endif; ?>
 
                         <label for="orden">Ordenar por:</label>
-                        <select name="orden" id="orden" class="sort-dropdown">
+                        <select name="orden" id="orden" class="sort-dropdown" onchange="this.form.submit()">
                             <option value="newest" <?= $currentOrder === 'newest' ? 'selected' : '' ?>>
                                 Más nuevos
                             </option>
@@ -51,7 +51,7 @@
                                 Nombre: A-Z
                             </option>
                         </select>
-                        <button type="submit" class="btn-secondary btn-sort">Aplicar</button>
+                        <button type="submit" class="btn-secondary btn-sort" style="display: none;">Aplicar</button>
                     </form>
                 </div>
 
