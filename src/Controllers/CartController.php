@@ -16,7 +16,8 @@ class CartController {
      */
     public function index() {
         View::render('cart/index', [
-            'pageTitle' => 'Tu Carrito'
+            'pageTitle' => 'Tu Carrito',
+            'carrito' => $this->cartService->getCart()
         ]);
     }
     

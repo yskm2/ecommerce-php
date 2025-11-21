@@ -1,3 +1,16 @@
+<?php
+/**
+ * Vista: Checkout - Finalizar Compra
+ * Variables esperadas:
+ * - $BASE_URL (string): URL base de la aplicación
+ * - $usuario (array): Datos del usuario para prellenar formulario
+ * - $carrito (array): Items del carrito
+ * - $total (float): Total de la compra
+ */
+$usuario = $usuario ?? [];
+$carrito = $carrito ?? [];
+$total = $total ?? 0;
+?>
 <main class="page-content">
     <div class="container">
         <h1 class="page-title">Finalizar Compra</h1>

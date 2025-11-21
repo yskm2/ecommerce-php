@@ -1,4 +1,12 @@
-
+<?php
+/**
+ * Vista: Gestión de Productos (Admin)
+ * Variables esperadas:
+ * - $BASE_URL (string): URL base de la aplicación
+ * - $products (array): Lista de productos a gestionar
+ */
+$products = $products ?? [];
+?>
 <div class="main-content">
     <h1>Gestionar Productos</h1>
     

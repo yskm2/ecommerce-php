@@ -1,3 +1,10 @@
+<?php
+/**
+ * Vista: Página de Login
+ * Variables esperadas:
+ * - $BASE_URL (string): URL base de la aplicación
+ */
+?>
 <main class="auth-page">
         <div class="check-in-area">
             <div class="titulo-logo">

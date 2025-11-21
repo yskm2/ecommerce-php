@@ -1,3 +1,12 @@
+<?php
+/**
+ * Vista: Página de Inicio
+ * Variables esperadas:
+ * - $BASE_URL (string): URL base de la aplicación
+ * - $productos_destacados (array): Lista de productos destacados
+ */
+$productos_destacados = $productos_destacados ?? [];
+?>
 <main class="page-content">
 <section class="hero-banner">
     <div class="container">

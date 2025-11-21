@@ -1,5 +1,11 @@
 <?php
-$carrito = $_SESSION['carrito'] ?? [];
+/**
+ * Vista: Carrito de Compras
+ * Variables esperadas:
+ * - $BASE_URL (string): URL base de la aplicación
+ * - $carrito (array): Items del carrito con estructura [id => [nombre, precio, cantidad, imagen]]
+ */
+$carrito = $carrito ?? [];
 $total = 0;
 ?>
 

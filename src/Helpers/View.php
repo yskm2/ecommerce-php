@@ -22,6 +22,10 @@ class View {
         $cartService = new CartService();
         $items_en_carrito = $cartService->getItemCount();
         
+        // Variables de autenticación para el header
+        $loggedin = Session::get('loggedin') ?? false;
+        $user_name = Session::get('name') ?? 'Invitado';
+        
         // Usar output buffering para capturar todo el HTML
         ob_start();
         

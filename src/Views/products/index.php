@@ -1,3 +1,18 @@
+<?php
+/**
+ * Vista: Página de Tienda/Shop
+ * Variables esperadas:
+ * - $BASE_URL (string): URL base de la aplicación
+ * - $products (array): Lista de productos a mostrar
+ * - $categories (array): Lista de categorías disponibles
+ * - $currentCategory (string): Categoría actualmente seleccionada
+ * - $currentOrder (string): Orden actual de productos (newest, price_asc, etc.)
+ */
+$products = $products ?? [];
+$categories = $categories ?? [];
+$currentCategory = $currentCategory ?? '';
+$currentOrder = $currentOrder ?? 'newest';
+?>
 <main class="page-content shop-page">
     <div class="container">
         <h1 class="page-title">Tienda</h1>

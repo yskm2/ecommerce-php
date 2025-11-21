@@ -1,11 +1,15 @@
 <?php
 /**
- * Partial: product-card
+ * Partial: Tarjeta de Producto
  * Variables esperadas:
- * - $producto (array con keys id, nombre, precio, imagen)
- * - $BASE_URL
- * - $featured (bool) para mostrar overlay especial
+ * - $producto (array): Datos del producto [id, nombre, precio, imagen, descripcion]
+ * - $BASE_URL (string): URL base de la aplicación
+ * - $featured (bool): Si es producto destacado (muestra overlay diferente)
  */
+if (!isset($producto) || !is_array($producto)) {
+    return; // No renderizar si no hay datos válidos
+}
+
 $featured = $featured ?? false;
 ?>
 <div class="shop-product-card<?= $featured ? ' featured-card' : '' ?>">

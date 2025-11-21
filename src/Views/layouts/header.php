@@ -1,15 +1,17 @@
 <?php
-// src/views/layouts/header.php
+/**
+ * Layout: Header
+ * Variables esperadas:
+ * - $BASE_URL (string): URL base de la aplicación
+ * - $items_en_carrito (int): Cantidad total de items en el carrito
+ * - $loggedin (bool): Si el usuario está autenticado
+ * - $user_name (string): Nombre del usuario autenticado
+ */
 use App\Config\Config;
-// La lógica de cookies y session_start() ya no vive aquí.
-// El router (public/index.php) se encarga de eso.
 
-// Calculamos la cantidad de items en el carrito.
-// Esto es lógica de PRESENTACIÓN, por lo que está bien que esté aquí.
-$items_en_carrito = 0;
-if (!empty($_SESSION['carrito'])) {
-    $items_en_carrito = array_sum(array_column($_SESSION['carrito'], 'cantidad'));
-}
+$items_en_carrito = $items_en_carrito ?? 0;
+$loggedin = $loggedin ?? false;
+$user_name = $user_name ?? 'Invitado';
 ?>
 <header class="main-header">
     <div class="container header-content">
@@ -30,10 +32,10 @@ if (!empty($_SESSION['carrito'])) {
                 <?php endif; ?>
             </a>
             
-            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+            <?php if ($loggedin): ?>
                 <a class="nav-icon" href="<?= $BASE_URL ?>index.php?route=profile"><i class="fa fa-fw fa-user"></i></a>
                 <div class="user-info">
-                    <span>Usuario: &nbsp;<?= htmlspecialchars($_SESSION['name'] ?? 'Invitado') ?>!</span>
+                    <span>Usuario: &nbsp;<?= htmlspecialchars($user_name) ?>!</span>
                     <form action="<?= $BASE_URL ?>index.php?route=logout" method="post" class="inline-form">
                         <input type="hidden" name="action" value="logout">
                         <button type="submit" class="btn-danger">Cerrar Sesión</button>
