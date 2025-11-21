@@ -55,6 +55,12 @@ class AuthController {
      * Procesar registro
      */
     public function register() {
+        // Validar método POST
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+            View::redirect('register');
+            return;
+        }
+        
         $data = [
             'username' => trim($_POST['username'] ?? ''),
             'password' => $_POST['password'] ?? '',
@@ -68,10 +74,22 @@ class AuthController {
             return;
         }
         
+        // Validar longitud de contraseña
+        if (strlen($data['password']) < 6) {
+            View::redirect('register', 'error', 'La contraseña debe tener al menos 6 caracteres');
+            return;
+        }
+        
+        // Validar formato de email
+        if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+            View::redirect('register', 'error', 'El email no es válido');
+            return;
+        }
+        
         $result = $this->authService->register($data);
         
         if ($result['success']) {
-            View::redirect('login', 'success', $result['message']);
+            View::redirect('login', 'success', '¡Registro exitoso! Ahora puedes iniciar sesión.');
         } else {
             View::redirect('register', 'error', $result['message']);
         }

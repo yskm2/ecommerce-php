@@ -4,6 +4,13 @@
         <h2>Registro</h2>
       </div>
 
+      <!-- Mostrar mensaje flash si existe -->
+      <?php if ($flash = \App\Helpers\Session::getFlashMessage()): ?>
+          <div class="alert alert-<?= $flash['type'] ?>">
+              <?= htmlspecialchars($flash['message']) ?>
+          </div>
+      <?php endif; ?>
+
       <form action="<?= $BASE_URL ?>index.php?route=register" method="post" class="check-in-form">
     <input type="hidden" name="action" value="register">
     
