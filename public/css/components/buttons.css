@@ -1,0 +1,299 @@
+/* ============================================
+   BUTTONS - Primary, Secondary, Danger, Actions
+   ============================================ */
+
+.btn-primary,
+.btn-secondary,
+.btn-danger {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-hover) 100%);
+    color: #fff;
+    padding: 1rem 2rem;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.01em;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-primary-hover) 0%, var(--color-primary-dark) 100%);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-primary:hover {
+    box-shadow: var(--shadow-purple);
+    transform: translateY(-2px) scale(1.02);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: var(--color-surface-alt);
+    color: var(--color-text);
+    padding: .6rem 1rem;
+    border-radius: var(--radius-sm);
+}
+
+.btn-secondary:hover {
+    background: var(--color-surface);
+    color: var(--color-text);
+}
+
+.btn-danger {
+    background: var(--color-danger);
+    color: #fff;
+    padding: .6rem 1rem;
+    border-radius: var(--radius-sm);
+}
+
+.btn-danger:hover {
+    background: var(--color-danger-hover);
+    color: #fff;
+}
+
+.btn-view-details-icon,
+.btn-add-cart-alt {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--color-primary);
+    background: rgba(167, 139, 250, 0.15);
+    backdrop-filter: blur(10px);
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.btn-view-details-icon::before,
+.btn-add-cart-alt::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-view-details-icon:hover::before,
+.btn-add-cart-alt:hover::before {
+    opacity: 1;
+}
+
+.btn-view-details-icon:hover,
+.btn-add-cart-alt:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(167, 139, 250, 0.6);
+    border-color: var(--color-accent);
+    color: #fff;
+}
+
+.btn-view-details-icon svg,
+.btn-view-details-icon i,
+.btn-add-cart-alt svg,
+.btn-add-cart-alt i {
+    position: relative;
+    z-index: 1;
+    font-size: 1.3rem;
+    font-weight: 900;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    color: inherit;
+}
+
+.btn-view-details-icon i:empty::before,
+.btn-view-details-icon:not(:has(i))::after {
+    content: '👁';
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 1;
+    font-style: normal;
+}
+
+.btn-add-cart-alt i:empty::before,
+.btn-add-cart-alt:not(:has(i))::after {
+    content: '🛒';
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 1;
+    font-style: normal;
+}
+
+.cart-button {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-hover));
+    border: none;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.cart-button i {
+    font-size: 1.3rem;
+    font-weight: 900;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.cart-button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-hover), var(--color-primary-dark));
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cart-button:hover::before {
+    opacity: 1;
+}
+
+.cart-button:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: var(--shadow-purple);
+}
+
+.cart-button svg,
+.cart-button i {
+    position: relative;
+    z-index: 1;
+}
+
+.quantity-btn {
+    background: linear-gradient(135deg, rgba(167, 139, 250, 0.2), rgba(167, 139, 250, 0.1));
+    border: 1px solid rgba(167, 139, 250, 0.3);
+    color: var(--color-primary);
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 700;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quantity-btn:hover {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-hover));
+    border-color: var(--color-primary);
+    color: #fff;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(167, 139, 250, 0.4);
+}
+
+.btn-edit {
+    padding: .4rem .75rem;
+    font-size: .7rem;
+    background: var(--color-warning);
+    color: #000;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-edit:hover {
+    background: var(--color-warning-hover);
+    color: #fff;
+}
+
+.btn-delete {
+    padding: .4rem .75rem;
+    font-size: .7rem;
+    background: var(--color-danger);
+    color: #fff;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+}
+
+.btn-delete:hover {
+    background: var(--color-danger-hover);
+    color: #fff;
+}
+
+.btn-inline-add {
+    margin-bottom: 1rem;
+}
+
+.btn-add-cart {
+    margin-top: .75rem;
+}
+
+.btn-checkout {
+    width: 100%;
+    margin-top: .5rem;
+}
+
+.btn-sort {
+    padding: 0.875rem 1.5rem;
+    font-weight: 600;
+}
+
+.logout-button {
+    margin-top: .75rem;
+    background: var(--color-danger);
+    color: #fff;
+    border: none;
+    padding: .5rem .75rem;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background: var(--color-danger-hover);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    background: rgba(167, 139, 250, 0.08);
+    border: 1.5px solid rgba(167, 139, 250, 0.2);
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    align-self: flex-start;
+}
+
+.back-link:hover {
+    background: rgba(167, 139, 250, 0.15);
+    border-color: var(--color-primary);
+    transform: translateX(-5px);
+}

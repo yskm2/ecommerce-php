@@ -1,0 +1,238 @@
+/* ============================================
+   FORMS - Inputs, Textareas, Selects, Form Groups
+   ============================================ */
+
+.profile-form,
+.check-in-form,
+form {
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+}
+
+.profile-form label {
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text);
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+}
+
+.profile-form input,
+.check-in-form input:not([type="hidden"]):not([type="checkbox"]),
+form select,
+form textarea,
+form input[type="number"],
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="tel"] {
+    background: rgba(30, 30, 46, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(167, 139, 250, 0.2);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: .95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input:hover,
+form select:hover,
+form textarea:hover {
+    border-color: rgba(167, 139, 250, 0.4);
+    background: rgba(30, 30, 46, 0.7);
+    transform: translateY(-1px);
+}
+
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    background: var(--color-surface);
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.12);
+    transform: translateY(-1px);
+}
+
+.quantity-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .75rem;
+    background: rgba(30, 30, 46, 0.6);
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+}
+
+.quantity-value {
+    min-width: 32px;
+    text-align: center;
+    font-weight: 600;
+    color: var(--color-text);
+    font-size: 1rem;
+}
+
+.quantity-input {
+    width: 80px;
+    padding: .4rem .5rem;
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    border-radius: var(--radius-sm);
+}
+
+.form-grid {
+    display: grid;
+    gap: 1.25rem;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 1.25rem;
+}
+
+@media (max-width: 640px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-row {
+    margin-bottom: .75rem;
+}
+
+.form-row label {
+    display: block;
+    margin-bottom: .35rem;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--color-text-muted);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: .35rem;
+    font-size: .75rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--color-text-muted);
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    background: rgba(30, 30, 46, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(167, 139, 250, 0.2);
+    border-radius: var(--radius-md);
+    padding: 0.9rem 1.1rem;
+    color: var(--color-text);
+    font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.15),
+        0 4px 16px rgba(167, 139, 250, 0.2);
+    transform: translateY(-2px);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(156, 163, 175, 0.6);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-group input:focus::placeholder,
+.form-group textarea:focus::placeholder {
+    opacity: 0.5;
+    transform: translateX(4px);
+}
+
+.form-group small {
+    font-size: .7rem;
+    color: var(--color-text-muted);
+    margin-top: .25rem;
+    display: block;
+}
+
+.form-submit-row {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-form h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.add-to-cart-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-top: 1.5rem;
+}
+
+.add-to-cart-form label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.quantity-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: rgba(20, 20, 32, 0.5);
+    border: 1.5px solid rgba(167, 139, 250, 0.2);
+    border-radius: var(--radius-md);
+    padding: 0.5rem;
+    width: fit-content;
+}
+
+.sort-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.inline-form {
+    display: inline;
+}
+
+.actions {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.actions a {
+    font-size: .7rem;
+    margin-right: .5rem;
+}
+
+.actions a.delete {
+    color: var(--color-danger);
+}

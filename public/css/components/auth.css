@@ -1,0 +1,364 @@
+/* ============================================
+   AUTH - Login, Register Pages
+   ============================================ */
+
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    position: relative;
+    flex: 1;
+    background-image: linear-gradient(135deg, rgba(20, 20, 32, 0.75) 0%, rgba(30, 30, 46, 0.8) 100%),
+        url('../assets/img/background.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.auth-page::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.auth-page>* {
+    position: relative;
+    z-index: 1;
+}
+
+.check-in-area {
+    max-width: 480px;
+    width: 100%;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(20, 20, 32, 0.95) 0%, rgba(30, 30, 46, 0.95) 100%);
+    backdrop-filter: blur(30px) saturate(150%);
+    padding: 2rem 2.5rem;
+    border-radius: var(--radius-xl);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 1px rgba(167, 139, 250, 0.3);
+    border: 1px solid rgba(167, 139, 250, 0.2);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.check-in-area::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent), var(--color-hover), var(--color-primary));
+    border-radius: var(--radius-xl);
+    opacity: 0;
+    z-index: -1;
+    filter: blur(20px);
+    transition: opacity 0.5s ease;
+    background-size: 200% 200%;
+    animation: gradientShift 3s ease infinite;
+}
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+.check-in-area:hover::before {
+    opacity: 0.2;
+}
+
+.check-in-area::after {
+    content: '';
+    position: absolute;
+    top: -60%;
+    right: -30%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(167, 139, 250, 0.2) 0%, transparent 65%);
+    border-radius: 50%;
+    animation: float 8s ease-in-out infinite;
+    filter: blur(40px);
+}
+
+@media (max-width: 640px) {
+    .check-in-area {
+        margin: 0;
+        padding: 1.75rem 1.5rem;
+    }
+}
+
+.titulo-logo h2,
+.check-in-area h2 {
+    margin: 0 0 1.75rem;
+    font-size: 1.75rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 50%, #fff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 1;
+}
+
+.check-in-area h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(167, 139, 250, 0.6);
+}
+
+.check-in-form .user,
+.check-in-form .password {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.check-in-form .user label,
+.check-in-form .password label {
+    position: absolute;
+    left: 1.25rem;
+    top: 1rem;
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    pointer-events: none;
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.check-in-form .user label i,
+.check-in-form .password label i {
+    display: block;
+}
+
+/* !important necesario aquí para override de padding por defecto del input */
+.check-in-form .user input,
+.check-in-form .password input {
+    padding-left: 3.5rem !important;
+}
+
+.check-in-form .user input:focus+label,
+.check-in-form .password input:focus+label,
+.check-in-form .user input:not(:placeholder-shown)+label,
+.check-in-form .password input:not(:placeholder-shown)+label {
+    color: var(--color-accent);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.check-in-form button[type="submit"] {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+    border: none;
+    border-radius: var(--radius-md);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(167, 139, 250, 0.3), 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.check-in-form button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-hover) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.check-in-form button[type="submit"]:hover::before {
+    opacity: 1;
+}
+
+.check-in-form button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(167, 139, 250, 0.4), 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.check-in-form button[type="submit"]:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(167, 139, 250, 0.3);
+}
+
+.check-in-form button[type="submit"] i,
+.check-in-form button[type="submit"] span {
+    position: relative;
+    z-index: 1;
+}
+
+.check-in-form button[type="submit"] i {
+    font-size: 1.1rem;
+}
+
+.check-in-form label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 1rem 0;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.check-in-form label:has(input[type="checkbox"]):hover {
+    color: var(--color-text);
+}
+
+.check-in-form input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--color-primary);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.check-in-form input[type="checkbox"]:hover {
+    transform: scale(1.1);
+}
+
+.check-in-form .register-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.75rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1.5px solid rgba(167, 139, 250, 0.3);
+    font-size: 0.9rem;
+    background: rgba(167, 139, 250, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.check-in-form .register-btn:hover {
+    background: rgba(167, 139, 250, 0.15);
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(167, 139, 250, 0.2);
+    color: var(--color-accent);
+}
+
+.check-in-form .register-btn:active {
+    transform: translateY(0);
+}
+
+.check-in-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.check-in-form input[type="text"],
+.check-in-form input[type="email"],
+.check-in-form input[type="password"],
+.check-in-form input[type="tel"] {
+    margin-bottom: 1.25rem;
+}
+
+.check-in-form a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+.check-in-form a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.check-in-form a:hover::after {
+    width: 100%;
+}
+
+.check-in-form a:hover {
+    color: var(--color-accent);
+}
+
+.alert {
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: .9rem;
+    margin-bottom: 1.5rem;
+    border: 1.5px solid;
+    font-weight: 500;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.alert-success {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.5);
+    color: #10b981;
+}
+
+.alert-error {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #ef4444;
+}
+
+.alert-info {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: rgba(59, 130, 246, 0.3);
+    color: #3b82f6;
+}

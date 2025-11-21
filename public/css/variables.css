@@ -1,31 +1,48 @@
 :root {
+    /* === Colors - Background === */
     --color-bg: #0a0a0f;
     --color-surface: #141420;
     --color-surface-alt: #1e1e2e;
     --color-border: #2a2a3e;
+
+    /* === Colors - Text === */
     --color-text: #e8e8f2;
     --color-text-muted: #a5a5bc;
+
+    /* === Colors - Primary === */
     --color-primary: #a78bfa;
     --color-primary-hover: #8b5cf6;
     --color-primary-dark: #7c3aed;
     --color-accent: #c084fc;
+
+    /* === Colors - Semantic === */
     --color-danger: #f87171;
     --color-danger-hover: #ef4444;
     --color-warning: #fbbf24;
     --color-warning-hover: #f59e0b;
     --color-success: #34d399;
+
+    /* === Border Radius === */
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 20px;
     --radius-xl: 28px;
+
+    /* === Shadows === */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.5);
     --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.6);
     --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.7);
     --shadow-purple: 0 8px 32px rgba(167, 139, 250, 0.3);
     --shadow-purple-lg: 0 16px 48px rgba(167, 139, 250, 0.4);
     --glow-primary: 0 0 20px rgba(167, 139, 250, 0.5);
+
+    /* === Transitions === */
     --transition: .3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: .5s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* === Typography === */
     --font-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, sans-serif;
+
+    /* === Layout === */
     --container-width: 1280px;
 }
