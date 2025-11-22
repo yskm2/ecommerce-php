@@ -1,0 +1,237 @@
+/* ============================================
+   MOBILE OPTIMIZATIONS - iPhone 15 Pro Max (430x932)
+   FORCE smaller sizes for mobile devices
+   ============================================ */
+
+@media (max-width: 430px) {
+
+    /* Imagen hero sin efectos de tarjeta */
+    .hero-image,
+    .hero-image::before,
+    .hero-image::after {
+        display: block !important;
+        background: transparent !important;
+    }
+
+    .hero-image img {
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        border: none !important;
+        opacity: 0.95 !important;
+    }
+
+
+    /* REDUCIR TODO EL CONTENIDO */
+    html {
+        font-size: 14px !important;
+    }
+
+    body {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+    }
+
+    /* TÍTULOS MÁS PEQUEÑOS */
+    h1 {
+        font-size: 1.5rem !important;
+    }
+
+    h2 {
+        font-size: 1.3rem !important;
+    }
+
+    h3 {
+        font-size: 1.1rem !important;
+    }
+
+    h4 {
+        font-size: 1rem !important;
+    }
+
+    /* CONTAINER MÁS APRETADO */
+    .container {
+        padding: 0 0.75rem !important;
+        max-width: 100% !important;
+    }
+
+    /* HERO BANNER COMPACTO */
+    .hero-banner {
+        padding: 1.25rem 0 !important;
+    }
+
+    .hero-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 0.8rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .hero-text p {
+        font-size: 0.85rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .hero-image {
+        margin-top: 1rem !important;
+    }
+
+    .hero-image img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+
+    /* BOTONES MÁS PEQUEÑOS */
+    .btn-primary,
+    .btn-secondary {
+        padding: 0.65rem 1rem !important;
+        font-size: 0.85rem !important;
+    }
+
+    /* TARJETAS DE PRODUCTO MÁS COMPACTAS */
+    .shop-products-grid,
+    .products-grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.875rem !important;
+    }
+
+    .shop-product-card {
+        margin-bottom: 0.75rem !important;
+    }
+
+    .card-body {
+        padding: 0.75rem !important;
+    }
+
+    .product-title {
+        font-size: 0.85rem !important;
+        line-height: 1.3 !important;
+    }
+
+    .product-price {
+        font-size: 1rem !important;
+    }
+
+    /* CATEGORÍAS MÁS PEQUEÑAS */
+    .categories-section,
+    .featured-products {
+        padding: 1.5rem 0 !important;
+    }
+
+    .section-header {
+        margin-bottom: 1.25rem !important;
+    }
+
+    .section-header h2 {
+        font-size: 1.25rem !important;
+    }
+
+    .categories-grid {
+        gap: 0.875rem !important;
+    }
+
+    .category-item {
+        padding: 1rem !important;
+    }
+
+    .category-title {
+        font-size: 0.95rem !important;
+        margin: 0.75rem 0 0.5rem !important;
+    }
+
+    /* FORMULARIOS */
+    input,
+    textarea,
+    select,
+    .profile-form input,
+    .check-in-form input,
+    form input,
+    form textarea,
+    form select {
+        font-size: 16px !important;
+        /* NO hacer zoom en iOS */
+        padding: 0.65rem 0.85rem !important;
+        min-height: 42px !important;
+    }
+
+    /* NAVEGACIÓN */
+    .logo {
+        font-size: 1rem !important;
+    }
+
+    .nav-icon {
+        min-width: 38px !important;
+        min-height: 38px !important;
+        padding: 0.4rem !important;
+    }
+
+    /* FOOTER */
+    .main-footer {
+        padding: 1.5rem 0 0 !important;
+    }
+
+    .footer-content {
+        gap: 1.25rem !important;
+    }
+
+    .copyright-bar {
+        padding: 1rem 0 !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* DETALLES DE PRODUCTO */
+    .product-detail {
+        padding: 1.25rem !important;
+        gap: 1.25rem !important;
+    }
+
+    .product-detail .product-title {
+        font-size: 1.25rem !important;
+    }
+
+    .product-detail .product-price {
+        font-size: 1.5rem !important;
+    }
+
+    /* CARRITO */
+    .cart-item {
+        padding: 0.85rem 0.75rem !important;
+        gap: 0.65rem !important;
+        grid-template-columns: 60px 1fr !important;
+    }
+
+    .cart-item-subtotal {
+        font-size: 1rem !important;
+    }
+
+    .cart-summary {
+        padding: 1.25rem !important;
+    }
+
+    /* TOUCH TARGETS */
+    button,
+    a.nav-link,
+    .btn-primary,
+    .btn-secondary {
+        min-height: 44px !important;
+    }
+
+    /* PREVENIR SCROLL HORIZONTAL */
+    body,
+    html {
+        overflow-x: hidden !important;
+        max-width: 100vw !important;
+    }
+
+    * {
+        max-width: 100% !important;
+    }
+
+    /* IMÁGENES RESPONSIVAS */
+    img {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}

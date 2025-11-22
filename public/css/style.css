@@ -19,3 +19,6 @@
 
 /* Utilidades */
 @import url('utilities.css');
+
+/* Optimizaciones Móviles */
+@import url('mobile-optimizations.css');

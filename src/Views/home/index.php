@@ -8,7 +8,7 @@
 $productos_destacados = $productos_destacados ?? [];
 ?>
 <main class="page-content">
-<section class="hero-banner">
+<section class="hero-banner" style="background-image: linear-gradient(to right, rgba(10, 10, 15, 0.85) 0%, rgba(10, 10, 15, 0.6) 35%, rgba(10, 10, 15, 0.15) 100%), url('<?= $BASE_URL ?>assets/img/setup.jpg'); background-size: 60% auto; background-position: right center; background-repeat: no-repeat;">
     <div class="container">
         <div class="hero-content">
             <div class="hero-text">
@@ -17,9 +17,6 @@ $productos_destacados = $productos_destacados ?? [];
                 <p>
                     eBrainrot es una tienda en línea dirigida hacia la tecnología.
                 </p>
-            </div>
-            <div class="hero-image">
-                <img src="<?= $BASE_URL ?>assets/img/setup.jpg" alt="Banner Image">
             </div>
         </div>
     </div>

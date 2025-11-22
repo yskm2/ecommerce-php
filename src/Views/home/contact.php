@@ -1,41 +1,47 @@
-<main class="page-content">
-    <section class="page-header">
+<main class="page-content" role="main">
+    <section class="page-header" aria-labelledby="contact-heading">
         <div class="container">
-            <h1 class="page-title">Contáctanos</h1>
-            <p>Estamos aquí para ayudarte. Déjanos un mensaje y te responderemos lo antes posible.</p>
+            <header>
+                <h1 class="page-title" id="contact-heading">Contáctanos</h1>
+                <p>Estamos aquí para ayudarte. Déjanos un mensaje y te responderemos lo antes posible.</p>
+            </header>
         </div>
     </section>
 
-    <section class="contact-info">
+    <section class="contact-info" aria-labelledby="contact-info-heading">
         <div class="container">
-            <div class="contact-info-grid">
-                <div class="contact-info-item">
-                    <i class="fas fa-map-marker-alt"></i>
+            <h2 id="contact-info-heading" class="sr-only">Información de contacto</h2>
+            <div class="contact-info-grid" role="list">
+                <article class="contact-info-item" role="listitem">
+                    <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
                     <h3>Ubicación</h3>
-                    <p>Hermosillo, Sonora<br>México</p>
-                </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-phone"></i>
+                    <address>
+                        Hermosillo, Sonora<br>
+                        México
+                    </address>
+                </article>
+                <article class="contact-info-item" role="listitem">
+                    <i class="fas fa-phone" aria-hidden="true"></i>
                     <h3>Teléfono</h3>
-                    <p>010-020-0340</p>
-                </div>
-                <div class="contact-info-item">
-                    <i class="fas fa-envelope"></i>
+                    <p><a href="tel:0100200340" aria-label="Llamar al 010-020-0340">010-020-0340</a></p>
+                </article>
+                <article class="contact-info-item" role="listitem">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
                     <h3>Email</h3>
-                    <p>info@ebrainrot.com</p>
-                </div>
+                    <p><a href="mailto:info@ebrainrot.com" aria-label="Enviar correo a info@ebrainrot.com">info@ebrainrot.com</a></p>
+                </article>
             </div>
         </div>
     </section>
 
-    <section class="contact-section">
+    <section class="contact-section" aria-labelledby="contact-form-heading">
         <div class="container">
-            <h2>Envíanos un mensaje</h2>
-            <form class="contact-form" method="post" action="<?= $BASE_URL ?>index.php?route=contact-submit">
+            <h2 id="contact-form-heading">Envíanos un mensaje</h2>
+            <form class="contact-form" method="post" action="<?= $BASE_URL ?>index.php?route=contact-submit" aria-label="Formulario de contacto">
                 <div class="form-row">
                     <div class="form-group">
                         <label for="name">Nombre</label>
-                        <input type="text" id="name" name="name" placeholder="Tu nombre" required>
+                        <input type="text" id="name" name="name" placeholder="Tu nombre" aria-required="true" required>
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>

@@ -66,6 +66,18 @@ img {
     }
 }
 
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+}
+
+@media (max-width: 430px) {
+    .container {
+        padding: 0 0.65rem;
+    }
+}
+
 h1,
 h2,
 h3,
