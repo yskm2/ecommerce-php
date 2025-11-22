@@ -5,7 +5,7 @@
         + Añadir Nuevo Usuario
     </a>
 
-    <table class="content-table">
+    <table class="content-table admin-table admin-users-table">
         <thead>
             <tr>
                 <th>ID</th>

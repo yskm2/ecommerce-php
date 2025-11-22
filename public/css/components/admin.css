@@ -3,68 +3,32 @@
    ============================================ */
 
 .admin-container {
-    display: grid;
-    grid-template-columns: 260px 1fr;
-    min-height: 100vh;
-}
-
-@media (max-width: 992px) {
-    .admin-container {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Admin Sidebar */
-.sidebar {
-    background: var(--color-surface);
-    border-right: 1px solid var(--color-border);
-    padding: 1.5rem 1.25rem;
-}
-
-@media (max-width: 992px) {
-    .sidebar {
-        border-right: none;
-        border-bottom: 1px solid var(--color-border);
-    }
-}
-
-.sidebar h2 {
-    margin: 0 0 1rem;
-    font-size: 1rem;
-}
-
-.sidebar ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
     flex-direction: column;
-    gap: .35rem;
+    min-height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
 }
 
-.sidebar a {
-    display: block;
-    padding: .55rem .75rem;
-    border-radius: var(--radius-sm);
-    font-size: .75rem;
-    color: var(--color-text-muted);
-}
-
-.sidebar a:hover {
-    background: var(--color-surface-alt);
-    color: var(--color-text);
-}
-
-.sidebar a.active {
-    background: var(--color-primary);
-    color: #fff;
-}
+/* Sidebar removed - using hamburger menu only */
 
 /* Main Content */
 .main-content {
     padding: 2rem;
     background: rgba(20, 20, 32, 0.4);
-    min-height: calc(100vh - 80px);
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+/* Ocultar scroll en dashboard */
+body:has(.stat-cards) .main-content {
+    overflow: hidden;
+}
+
+body:has(.stat-cards) html,
+body:has(.stat-cards) body {
+    overflow: hidden;
 }
 
 .main-content h1 {
@@ -252,41 +216,381 @@
         padding: 1.5rem;
     }
 
+    /* Mantener tabla como tabla y permitir scroll horizontal */
     .content-table {
         display: block;
+        /* para permitir overflow */
         overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
     }
 
     .content-table thead {
-        display: none;
+        display: table-header-group;
+    }
+
+    .content-table tbody {
+        display: table-row-group;
+    }
+
+    .content-table tr {
+        display: table-row;
+    }
+
+    .content-table th,
+    .content-table td {
+        display: table-cell;
+        text-align: left;
+        padding: .6rem .75rem;
     }
 
     .content-table tbody tr {
-        display: block;
-        margin-bottom: 1rem;
-        border: 1px solid rgba(167, 139, 250, 0.2);
-        border-radius: var(--radius-md);
-    }
-
-    .content-table tbody td {
-        display: block;
-        text-align: right;
-        padding: 0.75rem 1rem;
-        border-bottom: 1px solid rgba(167, 139, 250, 0.1);
-    }
-
-    .content-table tbody td:last-child {
-        border-bottom: none;
+        margin: 0;
+        border: none;
+        border-radius: 0;
     }
 
     .content-table tbody td::before {
-        content: attr(data-label);
-        float: left;
-        font-weight: 600;
-        color: var(--color-text);
+        content: none;
     }
 
     .content-table .actions {
-        justify-content: flex-end;
+        justify-content: flex-start;
+    }
+}
+
+/* =============================
+   Admin Mobile Topbar & Menu
+   ============================= */
+/* Topbar visible en todos los tamaños */
+.admin-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    height: 56px;
+    padding: 0 .75rem;
+    background: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.admin-topbar-title {
+    font-weight: 600;
+    font-size: .95rem;
+    color: var(--color-text);
+}
+
+.admin-hamburger {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface-alt);
+    cursor: pointer;
+}
+
+.admin-hamburger .bar {
+    width: 22px;
+    height: 3px;
+    background: var(--color-text);
+    display: block;
+    border-radius: 3px;
+    opacity: .95;
+}
+
+.admin-hamburger .bar+.bar {
+    margin-top: 0;
+}
+
+/* Menú móvil visible en todos los tamaños */
+.admin-mobile-menu {
+    display: none;
+}
+
+.admin-mobile-menu[aria-hidden="false"] {
+    display: block;
+}
+
+.admin-mobile-menu {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .35);
+    backdrop-filter: blur(2px);
+    z-index: 1000;
+}
+
+.admin-mobile-menu ul {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 78%;
+    max-width: 320px;
+    height: 100%;
+    margin: 0;
+    padding: 1rem;
+    list-style: none;
+    background: var(--color-surface);
+    border-right: 1px solid var(--color-border);
+    box-shadow: 6px 0 24px rgba(0, 0, 0, .25);
+    transform: translateX(-100%);
+    transition: transform .25s ease;
+}
+
+.admin-mobile-menu[aria-hidden="false"] ul {
+    transform: translateX(0);
+}
+
+.admin-mobile-menu li {
+    margin: .35rem 0;
+}
+
+.admin-mobile-menu a,
+.admin-mobile-menu button.logout-button {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    padding: .7rem .85rem;
+    border-radius: var(--radius-sm);
+    font-size: .95rem;
+    color: var(--color-text);
+    background: transparent;
+    border: none;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.admin-mobile-menu a:hover {
+    background: var(--color-surface-alt);
+}
+
+.admin-mobile-menu a.active {
+    background: var(--color-primary);
+    color: #fff;
+}
+
+.admin-mobile-menu .menu-logout .logout-button {
+    color: #ef4444;
+}
+
+@media (max-width: 992px) {
+
+    /* Tabla compacta y que ajuste al ancho del móvil */
+    .content-table {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        max-width: 100vw;
+        font-size: .70rem;
+    }
+
+    .content-table th,
+    .content-table td {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    /* Ocultar columnas menos críticas por tabla */
+    /* Productos: ocultar Descripción (6) */
+    .admin-products-table th:nth-child(6),
+    .admin-products-table td:nth-child(6) {
+        display: none;
+    }
+
+    /* Pedidos: ocultar 'Creado' (5) */
+    .admin-orders-table th:nth-child(5),
+    .admin-orders-table td:nth-child(5) {
+        display: none;
+    }
+
+    /* Usuarios: ocultar Teléfono (5) y Registrado (7) */
+    .admin-users-table th:nth-child(5),
+    .admin-users-table td:nth-child(5),
+    .admin-users-table th:nth-child(7),
+    .admin-users-table td:nth-child(7) {
+        display: none;
+    }
+
+    .admin-mobile-menu {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, .35);
+        backdrop-filter: blur(2px);
+        display: none;
+        z-index: 1000;
+    }
+
+    .admin-mobile-menu[aria-hidden="false"] {
+        display: block;
+    }
+
+    .admin-mobile-menu ul {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 78%;
+        max-width: 320px;
+        height: 100%;
+        margin: 0;
+        padding: 1rem;
+        list-style: none;
+        background: var(--color-surface);
+        border-right: 1px solid var(--color-border);
+        box-shadow: 6px 0 24px rgba(0, 0, 0, .25);
+        transform: translateX(-100%);
+        transition: transform .25s ease;
+    }
+
+    .admin-mobile-menu[aria-hidden="false"] ul {
+        transform: translateX(0);
+    }
+
+    .admin-mobile-menu li {
+        margin: .35rem 0;
+    }
+
+    .admin-mobile-menu a,
+    .admin-mobile-menu button.logout-button {
+        width: 100%;
+        display: inline-flex;
+        align-items: center;
+        gap: .6rem;
+        padding: .7rem .85rem;
+        border-radius: var(--radius-sm);
+        font-size: .95rem;
+        color: var(--color-text);
+        background: transparent;
+        border: none;
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .admin-mobile-menu a:hover {
+        background: var(--color-surface-alt);
+    }
+
+    .admin-mobile-menu a.active {
+        background: var(--color-primary);
+        color: #fff;
+    }
+
+    .admin-mobile-menu .menu-logout .logout-button {
+        color: #ef4444;
+    }
+}
+
+/* =============================
+   Admin mobile fine-tuning
+   ============================= */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 1rem;
+    }
+
+    /* Forzar tabla compacta y sin card layout */
+    .content-table {
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        width: 100%;
+        max-width: 100vw;
+        font-size: .70rem;
+    }
+
+    .content-table thead {
+        display: table-header-group;
+    }
+
+    .content-table tbody {
+        display: table-row-group;
+    }
+
+    .content-table tr {
+        display: table-row;
+    }
+
+    .content-table th,
+    .content-table td {
+        display: table-cell;
+        text-align: left;
+        padding: .4rem .5rem;
+    }
+
+    .content-table tbody tr {
+        margin: 0;
+        border: none;
+        border-radius: 0;
+    }
+
+    .content-table tbody td::before {
+        content: none;
+    }
+
+    .content-table .actions {
+        justify-content: flex-start;
+        gap: .4rem;
+    }
+
+    .btn-edit,
+    .btn-delete {
+        padding: .35rem .5rem;
+        font-size: .7rem;
+    }
+}
+
+@media (max-width: 420px) {
+    .content-table {
+        font-size: .65rem;
+    }
+
+    .content-table th,
+    .content-table td {
+        padding: .35rem .45rem;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* Productos: ocultar Stock (5) y Usuarios: ocultar Rol (6) */
+    .admin-products-table th:nth-child(5),
+    .admin-products-table td:nth-child(5) {
+        display: none;
+    }
+
+    .admin-users-table th:nth-child(6),
+    .admin-users-table td:nth-child(6) {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+
+    /* Ocultar cualquier scroll horizontal que muestre el sidebar */
+    html,
+    body,
+    .admin-container {
+        overflow-x: hidden;
+    }
+
+    /* Mejorar visibilidad del ícono hamburguesa */
+    .admin-hamburger .bar {
+        width: 22px;
+        height: 3px;
+        border-radius: 3px;
+        opacity: .95;
+    }
+
+    .admin-hamburger .bar+.bar {
+        margin-top: 5px;
     }
 }

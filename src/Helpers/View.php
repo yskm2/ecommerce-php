@@ -47,7 +47,7 @@ class View {
         ob_start();
         
         include __DIR__ . '/../Views/layouts/admin_head.php';
-        include __DIR__ . '/../Views/layouts/admin_sidebar.php';
+        // admin_sidebar.php removed - using topbar with hamburger menu only
         include __DIR__ . "/../Views/admin/{$view}.php";
         include __DIR__ . '/../Views/layouts/admin_footer.php';
         

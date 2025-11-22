@@ -1,6 +1,6 @@
 <div class="main-content">
     <h1>Gestionar Pedidos</h1>
-    <table class="content-table">
+    <table class="content-table admin-table admin-orders-table">
         <thead>
             <tr>
                 <th>ID</th>

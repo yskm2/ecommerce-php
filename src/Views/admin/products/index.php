@@ -15,7 +15,7 @@ $products = $products ?? [];
         + Añadir Nuevo Producto
     </a>
 
-    <table class="content-table">
+    <table class="content-table admin-table admin-products-table">
         <thead>
             <tr>
                 <th>ID</th>
